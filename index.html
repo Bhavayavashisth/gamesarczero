@@ -3,91 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamesarc</title> <!-- Updated website name -->
-    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+    <title>Gamesarc</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header with login link -->
+    <!-- Header -->
     <header class="cyber-header">
-        <h1 class="glow">Gamesarc</h1> <!-- Updated header text -->
+        <h1 class="glow">Gamesarc</h1>
         <a href="login.html" class="login-btn">Login</a>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation (Links open new pages) -->
     <nav class="cyber-nav">
         <ul>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#premium">Premium</a></li>
-            <li><a href="#membership">Membership</a></li>
-            <li><a href="#notices">Notices</a></li>
-            <li><a href="#suggestions">Suggestions</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="notices.html">Notices</a></li>
+            <li><a href="suggestions.html">Suggestions</a></li>
         </ul>
     </nav>
 
-    <!-- Games Section -->
-    <section id="games" class="section">
-        <h2>Games by OS</h2>
-        <div class="game-category">
-            <h3>Mac (Intel)</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('Game1')">Game1</div>
-                <!-- Add more games here -->
+    <!-- Random Game Suggestions Section -->
+    <section id="suggestions" class="section slide-in">
+        <h2>Random Game Suggestions</h2>
+        <div class="game-grid">
+            <div class="game-suggestion">
+                <img src="game-banner1.jpg" alt="Game Banner 1" class="game-banner">
+                <h3>Game Title 1</h3>
+                <button onclick="openGame('Game1')">View</button>
             </div>
-        </div>
-        <!-- Repeat for Mac ARM, PC, Android, PPSSPP, PS2 -->
-        <div class="game-category">
-            <h3>Mac (ARM)</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('Game2')">Game2</div>
+            <div class="game-suggestion">
+                <img src="game-banner2.jpg" alt="Game Banner 2" class="game-banner">
+                <h3>Game Title 2</h3>
+                <button onclick="openGame('Game2')">View</button>
             </div>
+            <div class="game-suggestion">
+                <img src="game-banner3.jpg" alt="Game Banner 3" class="game-banner">
+                <h3>Game Title 3</h3>
+                <button onclick="openGame('Game3')">View</button>
+            </div>
+            <!-- Add more as needed -->
         </div>
-        <!-- Similar for PC, Android, etc. -->
     </section>
 
-    <!-- Premium Games Section -->
-    <section id="premium" class="section">
-        <h2>Premium Games</h2>
-        <p>Contact Us</p>
-        <a href="https://instagram.com/youraccount" target="_blank"><img src="insta-logo.png" alt="Instagram"></a>
-        <a href="https://t.me/youraccount" target="_blank"><img src="telegram-logo.png" alt="Telegram"></a>
-        <!-- Paid games list -->
-    </section>
-
-    <!-- Membership Chart -->
-    <section id="membership" class="section">
-        <h2>Membership</h2>
-        <div class="membership-card" id="rookie">
-            <h3>Arc Rookie (Free)</h3>
-            <ul>
-                <li>✓ Basic Access</li>
-                <li>✗ Premium Games</li>
-            </ul>
-        </div>
-        <div class="membership-card" id="pro">
-            <h3>Arc Pro (150 Rupees)</h3>
-            <ul>
-                <li>✓ Basic + Downloads</li>
-                <li>✗ Full Premium</li>
-            </ul>
-        </div>
-        <!-- Similar for Elite and Premium -->
-    </section>
-
-    <!-- Notices (Admin Only) -->
-    <section id="notices" class="section">
-        <h2>Notices</h2>
-        <p>Admin notices here...</p>
-    </section>
-
-    <!-- Suggestions -->
-    <section id="suggestions" class="section">
-        <h2>Suggestions</h2>
-        <form>
-            <textarea placeholder="Suggest something..."></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
-    <script src="script.js"></script> <!-- Link to JS file -->
+    <script src="script.js"></script>
 </body>
 </html>

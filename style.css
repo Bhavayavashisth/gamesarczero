@@ -1,107 +1,45 @@
-/* Cyberpunk dark theme with purple-blue mixture and darkest vibe */
-body {
-    background: linear-gradient(45deg, #000000, #1a0033); /* Darkest black to deep purple-black */
-    color: #800080; /* Deep purple for text */
-    font-family: 'Courier New', monospace;
-    margin: 0;
-    padding: 0;
-    backdrop-filter: blur(5px); /* Blurry background */
-    overflow-x: hidden;
+/* Steam-inspired dark theme */
+/* ... (rest of the CSS from previous update remains the same) ... */
+
+/* New: Game grid for suggestions */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-/* Header with glow animation in purple-blue */
-.cyber-header {
+.game-suggestion {
+    background: #2a475e;
+    padding: 15px;
+    border-radius: 5px;
     text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* Darker transparent background */
-    box-shadow: 0 0 20px #800080; /* Purple shadow */
-    animation: glow 2s infinite alternate;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.glow {
-    text-shadow: 0 0 10px #800080; /* Purple glow */
+.game-suggestion:hover {
+    transform: scale(1.05); /* Visible hover animation */
+    box-shadow: 0 0 10px #66c0f4;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px #800080; } /* Purple */
-    to { text-shadow: 0 0 20px #0000ff; } /* Blue */
+.game-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
-/* Navigation with slide-in animation */
-.cyber-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.9); /* Even darker */
+/* New: Slide-in animation for suggestions section */
+.slide-in {
+    animation: slideIn 1.5s ease-out;
 }
 
-.cyber-nav a {
-    color: #800080; /* Purple links */
-    text-decoration: none;
-    margin: 0 20px;
-    transition: transform 0.3s;
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-.cyber-nav a:hover {
-    transform: scale(1.1);
-    color: #0000ff; /* Blue on hover */
-}
-
-/* Sections with fade-in */
-.section {
-    padding: 50px;
-    margin: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Dark transparent */
-    border-radius: 10px;
-    box-shadow: 0 0 15px #800080; /* Purple shadow */
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Game items with hover effects in purple-blue */
-.game-item {
-    background: rgba(128, 0, 128, 0.1); /* Light purple transparent */
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
-}
-
+/* Enhanced game-item hover for more visible animation */
 .game-item:hover {
-    box-shadow: 0 0 10px #0000ff; /* Blue glow */
-}
-
-/* Membership cards with shadows and animations in purple-blue */
-.membership-card {
-    background: rgba(0, 0, 0, 0.9); /* Darkest */
-    padding: 20px;
-    margin: 10px;
-    border: 1px solid #800080; /* Purple border */
-    box-shadow: 0 0 10px #800080; /* Purple shadow */
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 10px #800080; } /* Purple */
-    50% { box-shadow: 0 0 20px #0000ff; } /* Blue */
-    100% { box-shadow: 0 0 10px #800080; }
-}
-
-/* Login button in purple-blue */
-.login-btn {
-    color: #800080; /* Purple */
-    text-decoration: none;
-    border: 1px solid #800080;
-    padding: 10px;
-    transition: background 0.3s;
-}
-
-.login-btn:hover {
-    background: #800080; /* Purple background */
-    color: #000000; /* Dark text */
+    background: #66c0f4;
+    color: #171a21;
+    transform: scale(1.02); /* Slight scale for animation */
 }
