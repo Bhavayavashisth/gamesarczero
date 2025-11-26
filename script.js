@@ -82,3 +82,17 @@ function showDownloadPopup() {
         popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
     }
 }
+// ... (rest of script.js remains the same from previous update) ...
+
+// Redeem game function for premium
+function redeemGame(gameName, cost) {
+    if (points >= cost) {
+        points -= cost;
+        alert(`Redeemed ${gameName}! Points left: ${points}`);
+        // In real app, call backend to unlock game
+    } else {
+        alert(`Not enough points! You have ${points}, need ${cost}.`);
+    }
+}
+
+// ... (rest of script.js) ...
