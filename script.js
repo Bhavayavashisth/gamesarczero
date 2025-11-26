@@ -1,41 +1,40 @@
-// Function to open game page (simulates new page)
-function openGame(gameName) {
-    window.location.href = `game.html?game=${gameName}`; // Opens game.html with query param
+// Carousel for featured games
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
 }
 
-// Simulate points system (client-side; in real app, use AJAX to backend)
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Points system
 let points = 0;
-setInterval(() => {
-    points += 1; // 1 point per minute
-    console.log(`Points: ${points}`);
-}, 60000); // Every minute
+setInterval(() => points += 1, 60000); // 1 point/min
 
-// Download points (call on download click)
-function addDownloadPoints() {
-    points += 100;
-    alert(`Downloaded! +100 points. Total: ${points}`);
+function addDownloadPoints() { points += 100; alert(`+100 points! Total: ${points}`); }
+function addLoginPoints() { points += 150; alert(`+150 points! Total: ${points}`); }
+
+// Open game page
+function openGame(gameName) {
+    window.location.href = `game.html?game=${gameName}`;
 }
 
-// Login points (call on login)
-function addLoginPoints() {
-    points += 150;
-    alert(`Logged in! +150 points. Total: ${points}`);
-}
-
-// Comments simulation (in real app, fetch from backend)
+// Comments (simulate)
 function loadComments() {
-    // Simulate loading comments
     const commentsDiv = document.getElementById('comments');
-    commentsDiv.innerHTML = '<p>User1: Great game! (PFP: img.jpg)</p><p>Admin: Thanks! ✓</p>';
+    commentsDiv.innerHTML = '<p>User1: Great! (PFP: img.jpg)</p><p>Admin: Thanks! ✓</p>';
 }
-
-// Call on page load for game page
-if (window.location.pathname.includes('game.html')) {
-    loadComments();
-}
-
-// Suggestion form submission (simulate)
-document.querySelector('#suggestions form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Suggestion submitted!');
-});
+if (window.location.pathname.includes('game.html')) loadComments();

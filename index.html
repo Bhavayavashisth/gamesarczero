@@ -3,47 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamesarc</title>
+    <title>Gamesarc - Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="cyber-header">
-        <h1 class="glow">Gamesarc</h1>
-        <a href="login.html" class="login-btn">Login</a>
+    <!-- Steam-like Top Bar -->
+    <header class="steam-header">
+        <div class="header-left">
+            <h1>Gamesarc</h1>
+        </div>
+        <nav class="steam-nav">
+            <a href="index.html">Store</a>
+            <a href="games.html">Games</a>
+            <a href="premium.html">Premium</a>
+            <a href="membership.html">Membership</a>
+            <a href="notices.html">Notices</a>
+            <a href="suggestions.html">Suggestions</a>
+        </nav>
+        <div class="header-right">
+            <input type="text" placeholder="Search games..." class="search-bar">
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
     </header>
 
-    <!-- Navigation (Links open new pages) -->
-    <nav class="cyber-nav">
-        <ul>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="premium.html">Premium</a></li>
-            <li><a href="membership.html">Membership</a></li>
-            <li><a href="notices.html">Notices</a></li>
-            <li><a href="suggestions.html">Suggestions</a></li>
-        </ul>
-    </nav>
+    <!-- Featured Games Carousel (Steam-like) -->
+    <section class="featured-carousel">
+        <div class="carousel-slide active">
+            <img src="featured-banner1.jpg" alt="Featured Game 1">
+            <h2>Featured Game 1</h2>
+            <button onclick="openGame('Featured1')">View Details</button>
+        </div>
+        <div class="carousel-slide">
+            <img src="featured-banner2.jpg" alt="Featured Game 2">
+            <h2>Featured Game 2</h2>
+            <button onclick="openGame('Featured2')">View Details</button>
+        </div>
+        <!-- Add more slides -->
+        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    </section>
 
-    <!-- Random Game Suggestions Section -->
-    <section id="suggestions" class="section slide-in">
-        <h2>Random Game Suggestions</h2>
+    <!-- Random Game Suggestions -->
+    <section class="section">
+        <h2>Recommended for You</h2>
         <div class="game-grid">
-            <div class="game-suggestion">
-                <img src="game-banner1.jpg" alt="Game Banner 1" class="game-banner">
+            <div class="game-suggestion" onclick="openGame('Game1')">
+                <img src="game-banner1.jpg" alt="Game Banner 1">
                 <h3>Game Title 1</h3>
-                <button onclick="openGame('Game1')">View</button>
+                <p>Free</p>
             </div>
-            <div class="game-suggestion">
-                <img src="game-banner2.jpg" alt="Game Banner 2" class="game-banner">
+            <div class="game-suggestion" onclick="openGame('Game2')">
+                <img src="game-banner2.jpg" alt="Game Banner 2">
                 <h3>Game Title 2</h3>
-                <button onclick="openGame('Game2')">View</button>
+                <p>Premium</p>
             </div>
-            <div class="game-suggestion">
-                <img src="game-banner3.jpg" alt="Game Banner 3" class="game-banner">
-                <h3>Game Title 3</h3>
-                <button onclick="openGame('Game3')">View</button>
-            </div>
-            <!-- Add more as needed -->
+            <!-- Add 4-6 more -->
         </div>
     </section>
 
