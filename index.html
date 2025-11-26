@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberArc Games</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <!-- Header with login link -->
+    <header class="cyber-header">
+        <h1 class="glow">CyberArc Games</h1>
+        <a href="login.html" class="login-btn">Login</a>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <ul>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#premium">Premium</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#notices">Notices</a></li>
+            <li><a href="#suggestions">Suggestions</a></li>
+        </ul>
+    </nav>
+
+    <!-- Games Section -->
+    <section id="games" class="section">
+        <h2>Games by OS</h2>
+        <div class="game-category">
+            <h3>Mac (Intel)</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('Game1')">Game1</div>
+                <!-- Add more games here -->
+            </div>
+        </div>
+        <!-- Repeat for Mac ARM, PC, Android, PPSSPP, PS2 -->
+        <div class="game-category">
+            <h3>Mac (ARM)</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('Game2')">Game2</div>
+            </div>
+        </div>
+        <!-- Similar for PC, Android, etc. -->
+    </section>
+
+    <!-- Premium Games Section -->
+    <section id="premium" class="section">
+        <h2>Premium Games</h2>
+        <p>Contact Us</p>
+        <a href="https://instagram.com/youraccount" target="_blank"><img src="insta-logo.png" alt="Instagram"></a>
+        <a href="https://t.me/youraccount" target="_blank"><img src="telegram-logo.png" alt="Telegram"></a>
+        <!-- Paid games list -->
+    </section>
+
+    <!-- Membership Chart -->
+    <section id="membership" class="section">
+        <h2>Membership</h2>
+        <div class="membership-card" id="rookie">
+            <h3>Arc Rookie (Free)</h3>
+            <ul>
+                <li>✓ Basic Access</li>
+                <li>✗ Premium Games</li>
+            </ul>
+        </div>
+        <div class="membership-card" id="pro">
+            <h3>Arc Pro (150 Rupees)</h3>
+            <ul>
+                <li>✓ Basic + Downloads</li>
+                <li>✗ Full Premium</li>
+            </ul>
+        </div>
+        <!-- Similar for Elite and Premium -->
+    </section>
+
+    <!-- Notices (Admin Only) -->
+    <section id="notices" class="section">
+        <h2>Notices</h2>
+        <p>Admin notices here...</p>
+    </section>
+
+    <!-- Suggestions -->
+    <section id="suggestions" class="section">
+        <h2>Suggestions</h2>
+        <form>
+            <textarea placeholder="Suggest something..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script> <!-- Link to JS file -->
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* Cyberpunk dark theme with blurs and transparencies */
+body {
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e);
+    color: #00ffff;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(5px); /* Blurry background */
+    overflow-x: hidden;
+}
+
+/* Header with glow animation */
+.cyber-header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent */
+    box-shadow: 0 0 20px #00ffff;
+    animation: glow 2s infinite alternate;
+}
+
+.glow {
+    text-shadow: 0 0 10px #00ffff;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00ffff; }
+    to { text-shadow: 0 0 20px #ff00ff; }
+}
+
+/* Navigation with slide-in animation */
+.cyber-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.cyber-nav a {
+    color: #00ffff;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+
+.cyber-nav a:hover {
+    transform: scale(1.1);
+}
+
+/* Sections with fade-in */
+.section {
+    padding: 50px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ffff;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Game items with hover effects */
+.game-item {
+    background: rgba(0, 255, 255, 0.1);
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.game-item:hover {
+    box-shadow: 0 0 10px #00ffff;
+}
+
+/* Membership cards with shadows and animations */
+.membership-card {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #00ffff; }
+    50% { box-shadow: 0 0 20px #ff00ff; }
+    100% { box-shadow: 0 0 10px #00ffff; }
+}
+
+/* Login button */
+.login-btn {
+    color: #00ffff;
+    text-decoration: none;
+    border: 1px solid #00ffff;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #00ffff;
+    color: #000;
+}
