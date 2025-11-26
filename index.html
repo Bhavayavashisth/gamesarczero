@@ -26,7 +26,7 @@
         </div>
     </header>
 
-    <!-- Featured Games Carousel (Steam-like) -->
+    <!-- Featured Games Carousel -->
     <section class="featured-carousel">
         <div class="carousel-slide active">
             <img src="featured-banner1.jpg" alt="Featured Game 1">
@@ -38,7 +38,6 @@
             <h2>Featured Game 2</h2>
             <button onclick="openGame('Featured2')">View Details</button>
         </div>
-        <!-- Add more slides -->
         <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
         <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
     </section>
@@ -57,7 +56,16 @@
                 <h3>Game Title 2</h3>
                 <p>Premium</p>
             </div>
-            <!-- Add 4-6 more -->
+            <div class="game-suggestion" onclick="openGame('Game3')">
+                <img src="game-banner3.jpg" alt="Game Banner 3">
+                <h3>Game Title 3</h3>
+                <p>Free</p>
+            </div>
+            <div class="game-suggestion" onclick="openGame('Game4')">
+                <img src="game-banner4.jpg" alt="Game Banner 4">
+                <h3>Game Title 4</h3>
+                <p>Premium</p>
+            </div>
         </div>
     </section>
 

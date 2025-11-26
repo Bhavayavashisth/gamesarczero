@@ -6,14 +6,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cyber-header">
-        <h1>Notices</h1>
-        <a href="index.html">Back to Home</a>
+    <!-- Steam-like Header -->
+    <header class="steam-header">
+        <div class="header-left">
+            <h1>Gamesarc</h1>
+        </div>
+        <nav class="steam-nav">
+            <a href="index.html">Store</a>
+            <a href="games.html">Games</a>
+            <a href="premium.html">Premium</a>
+            <a href="membership.html">Membership</a>
+            <a href="notices.html">Notices</a>
+            <a href="suggestions.html">Suggestions</a>
+        </nav>
+        <div class="header-right">
+            <input type="text" placeholder="Search games..." class="search-bar">
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
     </header>
+
     <section class="section">
         <h2>Admin Notices</h2>
-        <p>Latest notices here...</p>
+        <p>Latest notices from admin...</p>
+        <!-- Admin can add notices here via backend -->
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

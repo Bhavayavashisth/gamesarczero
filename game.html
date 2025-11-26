@@ -2,20 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game Details</title>
+    <title>Games - Gamesarc</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="section">
-        <img src="game-logo.png" alt="Game Logo">
-        <h2>Game Name</h2>
-        <div>Screenshots: <img src="screenshot1.jpg"></div>
-        <p>Min Req: XYZ</p>
-        <p>Rec Req: ABC</p>
-        <button onclick="showDownloadPopup()">Download</button>
-        <div id="download-popup" style="display:none;">Links: <a href="#">Link1</a></div>
-        <div id="comments"></div>
-    </div>
+    <!-- Steam-like Header -->
+    <header class="steam-header">
+        <div class="header-left">
+            <h1>Gamesarc</h1>
+        </div>
+        <nav class="steam-nav">
+            <a href="index.html">Store</a>
+            <a href="games.html">Games</a>
+            <a href="premium.html">Premium</a>
+            <a href="membership.html">Membership</a>
+            <a href="notices.html">Notices</a>
+            <a href="suggestions.html">Suggestions</a>
+        </nav>
+        <div class="header-right">
+            <input type="text" placeholder="Search games..." class="search-bar">
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Games by OS</h2>
+        <div class="game-category">
+            <h3>Mac (Intel)</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('MacIntelGame1')">MacIntelGame1</div>
+                <div class="game-item" onclick="openGame('MacIntelGame2')">MacIntelGame2</div>
+            </div>
+        </div>
+        <div class="game-category">
+            <h3>Mac (ARM)</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('MacARMGame1')">MacARMGame1</div>
+            </div>
+        </div>
+        <div class="game-category">
+            <h3>PC</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('PCGame1')">PCGame1</div>
+            </div>
+        </div>
+        <div class="game-category">
+            <h3>Android</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('AndroidGame1')">AndroidGame1</div>
+            </div>
+        </div>
+        <div class="game-category">
+            <h3>PPSSPP</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('PPSSPPGame1')">PPSSPPGame1</div>
+            </div>
+        </div>
+        <div class="game-category">
+            <h3>PS2</h3>
+            <div class="game-list">
+                <div class="game-item" onclick="openGame('PS2Game1')">PS2Game1</div>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
