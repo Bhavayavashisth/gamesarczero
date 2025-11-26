@@ -1,71 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Games - Gamesarc</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Detail</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#0b0b10; color:#fff; margin:0; padding:0; }
+  .container { max-width:800px; margin:40px auto; padding:20px; }
+  img { max-width:100%; border-radius:8px; }
+  h1 { font-size:28px; margin-bottom:10px; }
+  .price { font-size:18px; color:#7c5cff; margin-bottom:10px; }
+  .specs { background:#1a1a2e; padding:15px; border-radius:8px; margin-bottom:20px; white-space:pre-line; }
+  .screenshots { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .screenshots img { width:100%; }
+</style>
 </head>
 <body>
-    <!-- Steam-like Header -->
-    <header class="steam-header">
-        <div class="header-left">
-            <h1>Gamesarc</h1>
-        </div>
-        <nav class="steam-nav">
-            <a href="index.html">Store</a>
-            <a href="games.html">Games</a>
-            <a href="premium.html">Premium</a>
-            <a href="membership.html">Membership</a>
-            <a href="notices.html">Notices</a>
-            <a href="suggestions.html">Suggestions</a>
-        </nav>
-        <div class="header-right">
-            <input type="text" placeholder="Search games..." class="search-bar">
-            <a href="login.html" class="login-btn">Login</a>
-        </div>
-    </header>
 
-    <section class="section">
-        <h2>Games by OS</h2>
-        <div class="game-category">
-            <h3>Mac (Intel)</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('MacIntelGame1')">MacIntelGame1</div>
-                <div class="game-item" onclick="openGame('MacIntelGame2')">MacIntelGame2</div>
-            </div>
-        </div>
-        <div class="game-category">
-            <h3>Mac (ARM)</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('MacARMGame1')">MacARMGame1</div>
-            </div>
-        </div>
-        <div class="game-category">
-            <h3>PC</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('PCGame1')">PCGame1</div>
-            </div>
-        </div>
-        <div class="game-category">
-            <h3>Android</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('AndroidGame1')">AndroidGame1</div>
-            </div>
-        </div>
-        <div class="game-category">
-            <h3>PPSSPP</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('PPSSPPGame1')">PPSSPPGame1</div>
-            </div>
-        </div>
-        <div class="game-category">
-            <h3>PS2</h3>
-            <div class="game-list">
-                <div class="game-item" onclick="openGame('PS2Game1')">PS2Game1</div>
-            </div>
-        </div>
-    </section>
+<div class="container">
+  <div id="gameLogoContainer"><img id="gameLogo" src="" alt="Game Logo"></div>
+  <h1 id="gameTitle"></h1>
+  <div class="price" id="gamePrice"></div>
+  <button id="downloadBtn" style="padding:10px 20px; background:#7c5cff; border:none; color:#fff; border-radius:6px; cursor:pointer; margin-bottom:20px;">
+    Download
+  <!-- Membership buttons -->
+  <button id="buyPremiumBtn" style="padding:8px 16px; margin-right:10px;">Buy Premium</button>
+  <button id="freePlanBtn" style="padding:8px 16px;">Free Plan</button>
+  <h3>Minimum Specs</h3>
+  <div class="specs" id="minSpecs"></div>
 
-    <script src="script.js"></script>
+  <h3>Recommended Specs</h3>
+  <div class="specs" id="recSpecs"></div>
+
+  <h3>Screenshots</h3>
+  <div class="screenshots" id="screenshots"></div>
+</div>
+
+<script>
+  // Helper: read from localStorage
+  function read(key,fallback){try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback}catch(e){return fallback}}
+  
+  function getQueryParam(name){
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  function findGameById(id){
+    const games = read('gamesarc_games', {});
+    for(const sec in games){
+      for(const g of games[sec]){
+        if(g.id===id) return g;
+      }
+    }
+    return null;
+  }
+
+  // Render
+  const gameId = getQueryParam('id');
+  const game = findGameById(gameId);
+
+  if(!game){
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:40px'>Game not found</h2>";
+  } else {
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+  if(!game) return alert('Game missing');
+
+  if(game.locked){
+    const current = read('gamesarc_currentUser');
+    if(!current) return alert('This game requires membership. Please login and buy premium.');
+
+    const users = read('gamesarc_users', []);
+    const me = users.find(u=>u.username===current);
+    if(!me || !me.isPremium) return alert('This is a members-only game. Buy membership to download.');
+  }
+
+  if(!game.downloadLink) return alert('Download link not available.');
+
+  // Trigger direct download
+  const a = document.createElement('a');
+  a.href = game.downloadLink;
+  a.download = ''; // optional: leave blank to use original filename
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+});
+
+
+
+    };
+  
+</script>
+
 </body>
 </html>
